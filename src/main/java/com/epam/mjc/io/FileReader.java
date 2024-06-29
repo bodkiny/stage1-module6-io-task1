@@ -3,6 +3,8 @@ package com.epam.mjc.io;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class FileReader {
@@ -26,7 +28,7 @@ public class FileReader {
 
             return ProfileParser.parse(sb.toString());
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            Logger.getLogger("FileReader").log(Level.SEVERE, "Error reading file", e);
         }
 
         return null;

@@ -1,5 +1,8 @@
 package com.epam.mjc.io;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public final class ProfileParser {
     private ProfileParser() {
     }
@@ -14,7 +17,7 @@ public final class ProfileParser {
 
             return new Profile(name, age, email, phone);
         } catch (NumberFormatException e) {
-            System.out.println("Error while trying to parse Profile parameters: " + e.getMessage());
+            Logger.getLogger("ProfileParser").log(Level.SEVERE, "Error parsing a number", e);
         }
 
         return null;
